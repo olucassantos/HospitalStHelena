@@ -60,37 +60,24 @@ namespace HospitalStHelena
                 return;
             }
 
-            // Cria uma nova instancia de comandos do Mysql
-            using (var comando = new MySqlCommand())
+            // Cria um dicionário com os parametros.
+            var parametros = new Dictionary<string, object> {
+                { "titulo", titulo },
+                { "descricao", descricao }
+            };
+
+            // Executa no banco e pega o resultado
+            bool resultado = conexaoDb.Inserir("cargos", parametros);
+
+            // Verifica se deu certo
+            if (resultado)
             {
-                // Define em qual conexão vai ser executado o comando
-                comando.Connection = conexaoDb.conexao;
-                // Cria a SQL que vai ser executada;
-                comando.CommandText = "INSERT INTO cargos (titulo, descricao) VALUES (@titulo, @descricao)";
-
-                // Adiciona os valores aos parametros;
-                comando.Parameters.AddWithValue("titulo", titulo);
-                comando.Parameters.AddWithValue("descricao", descricao);
-
-                try
-                {
-                    // Executa o comando
-                    int linhasAfetadas = await comando.ExecuteNonQueryAsync();
-
-                    if (linhasAfetadas > 0)
-                    {
-                        MessageBox.Show("Salvo com sucesso!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Houve um problema na hora de salvar");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro grave! \n" + ex.ToString());
-                }
-
+                MessageBox.Show("Salvo com sucesso!");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Erro ao salvar");
             }
         }
     }

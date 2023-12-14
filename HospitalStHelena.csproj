@@ -72,6 +72,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DB.sql" />
     <Compile Include="ConexaoDB.cs" />
     <Compile Include="frmCargos.cs">
       <SubType>Form</SubType>

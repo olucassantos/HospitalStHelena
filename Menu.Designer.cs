@@ -59,14 +59,14 @@
             // cargosToolStripMenuItem
             // 
             this.cargosToolStripMenuItem.Name = "cargosToolStripMenuItem";
-            this.cargosToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.cargosToolStripMenuItem.Size = new System.Drawing.Size(214, 34);
             this.cargosToolStripMenuItem.Text = "Cargos";
             this.cargosToolStripMenuItem.Click += new System.EventHandler(this.cargosToolStripMenuItem_Click_1);
             // 
             // funcionáriosToolStripMenuItem
             // 
             this.funcionáriosToolStripMenuItem.Name = "funcionáriosToolStripMenuItem";
-            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(214, 34);
             this.funcionáriosToolStripMenuItem.Text = "Funcionários";
             // 
             // frmMenu
@@ -76,6 +76,7 @@
             this.ClientSize = new System.Drawing.Size(1014, 571);
             this.Controls.Add(this.menuStrip1);
             this.Name = "frmMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hospital St. Helena";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

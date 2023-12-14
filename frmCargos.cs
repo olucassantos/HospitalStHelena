@@ -72,8 +72,25 @@ namespace HospitalStHelena
                 comando.Parameters.AddWithValue("titulo", titulo);
                 comando.Parameters.AddWithValue("descricao", descricao);
 
-                // Executa o comando
-                await comando.ExecuteNonQueryAsync();
+                try
+                {
+                    // Executa o comando
+                    int linhasAfetadas = await comando.ExecuteNonQueryAsync();
+
+                    if (linhasAfetadas > 0)
+                    {
+                        MessageBox.Show("Salvo com sucesso!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Houve um problema na hora de salvar");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro grave! \n" + ex.ToString());
+                }
+
             }
         }
     }

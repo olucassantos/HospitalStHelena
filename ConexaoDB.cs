@@ -35,5 +35,12 @@ namespace HospitalStHelena
             // Faz a conexão com o banco de dados.
             await conexao.OpenAsync();
         }
+
+        public bool Inserir()
+        {
+
+
+            return false;
+        }
     }
 }

@@ -28,13 +28,13 @@ namespace HospitalStHelena
             conectar();
         }
 
-        private async void conectar()
+        private void conectar()
         {
             // Passa os dados de conexão para o MysqlConnector
             conexao = new MySqlConnection(builder.ConnectionString);
 
             // Faz a conexão com o banco de dados.
-            await conexao.OpenAsync();
+            conexao.Open();
         }
 
         public bool Inserir(string tabela, Dictionary<string, object> parametros)
@@ -82,5 +82,53 @@ namespace HospitalStHelena
 
             }
         }
+
+        /*
+         Função que retorna todos os dados de uma tabela
+         */
+        public List<Cargo> SelecionaTudo(string tabela)
+        {
+            string sql = $"SELECT * FROM {tabela}";
+
+            // Cria uma lista de cargos
+            List<Cargo> lista = new List<Cargo>();
+
+            using (var comando = new MySqlCommand())
+            {
+                // Define em qual conexão vai ser executado o comando
+                comando.Connection = this.conexao;
+
+                // Adiciona o comando SQL
+                comando.CommandText = sql;
+
+                // Executa o comando do SQL e prepara um leitor (reader)
+                using (var leitor = comando.ExecuteReader())
+                {
+                    // Verifica se tem resultados
+                    if (leitor.HasRows)
+                    {
+                        // Passa linha por linha do resultado
+                        while (leitor.Read())
+                        {
+                            int id = leitor.GetInt32("id");
+                            string titulo = leitor.GetString("titulo");
+                            string descricao = leitor.GetString("descricao");
+
+                            lista.Add(new Cargo { id = id, titulo = titulo, descricao = descricao });
+                        }
+                    }
+                }
+
+                return lista;
+            }
+        }
+
+    }
+    class Cargo
+    {
+        public int id { get; set; }
+        public string titulo { get; set; }
+
+        public string descricao { get; set;}
     }
 }

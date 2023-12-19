@@ -72,6 +72,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComboBoxCargos.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Validacao.cs" />
     <Content Include="DB.sql" />
     <Compile Include="ConexaoDB.cs" />

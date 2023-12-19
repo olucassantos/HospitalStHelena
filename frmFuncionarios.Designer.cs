@@ -39,9 +39,9 @@
             this.txtCpf = new System.Windows.Forms.MaskedTextBox();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.cmbCargo = new System.Windows.Forms.ComboBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.cmbCargo = new HospitalStHelena.ComboBoxCargos();
             this.SuspendLayout();
             // 
             // label1
@@ -139,18 +139,6 @@
             this.txtEmail.Size = new System.Drawing.Size(424, 26);
             this.txtEmail.TabIndex = 7;
             // 
-            // cmbCargo
-            // 
-            this.cmbCargo.FormattingEnabled = true;
-            this.cmbCargo.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
-            this.cmbCargo.Location = new System.Drawing.Point(7, 297);
-            this.cmbCargo.Name = "cmbCargo";
-            this.cmbCargo.Size = new System.Drawing.Size(424, 28);
-            this.cmbCargo.TabIndex = 11;
-            // 
             // btnSalvar
             // 
             this.btnSalvar.Location = new System.Drawing.Point(264, 342);
@@ -171,14 +159,22 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // cmbCargo
+            // 
+            this.cmbCargo.FormattingEnabled = true;
+            this.cmbCargo.Location = new System.Drawing.Point(7, 297);
+            this.cmbCargo.Name = "cmbCargo";
+            this.cmbCargo.Size = new System.Drawing.Size(424, 28);
+            this.cmbCargo.TabIndex = 14;
+            // 
             // frmFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(441, 387);
+            this.Controls.Add(this.cmbCargo);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.cmbCargo);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.txtCpf);
@@ -211,8 +207,8 @@
         private System.Windows.Forms.MaskedTextBox txtCpf;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.ComboBox cmbCargo;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnCancelar;
+        private ComboBoxCargos cmbCargo;
     }
 }

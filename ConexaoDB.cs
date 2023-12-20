@@ -128,7 +128,6 @@ namespace HospitalStHelena
     {
         public int id { get; set; }
         public string titulo { get; set; }
-
         public string descricao { get; set;}
     }
 }

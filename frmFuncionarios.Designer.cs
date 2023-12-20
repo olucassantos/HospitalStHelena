@@ -59,6 +59,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(424, 26);
             this.txtNome.TabIndex = 1;
+            this.txtNome.Text = "Lucas Anjos";
             // 
             // label2
             // 
@@ -77,6 +78,7 @@
             this.datDataNascimento.Name = "datDataNascimento";
             this.datDataNascimento.Size = new System.Drawing.Size(168, 26);
             this.datDataNascimento.TabIndex = 3;
+            this.datDataNascimento.Value = new System.DateTime(2000, 12, 19, 19, 59, 0, 0);
             // 
             // label3
             // 
@@ -131,6 +133,7 @@
             this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(235, 26);
             this.txtSenha.TabIndex = 9;
+            this.txtSenha.Text = "123123123";
             // 
             // txtEmail
             // 
@@ -138,6 +141,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(424, 26);
             this.txtEmail.TabIndex = 7;
+            this.txtEmail.Text = "lucas@email.com";
             // 
             // btnSalvar
             // 
@@ -161,11 +165,13 @@
             // 
             // cmbCargo
             // 
+            this.cmbCargo.DisplayMember = "titulo";
             this.cmbCargo.FormattingEnabled = true;
             this.cmbCargo.Location = new System.Drawing.Point(7, 297);
             this.cmbCargo.Name = "cmbCargo";
             this.cmbCargo.Size = new System.Drawing.Size(424, 28);
             this.cmbCargo.TabIndex = 14;
+            this.cmbCargo.ValueMember = "id";
             // 
             // frmFuncionarios
             // 

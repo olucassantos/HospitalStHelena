@@ -40,7 +40,8 @@ namespace HospitalStHelena
             string email = txtEmail.Text;
             string senha = txtSenha.Text;
             DateTime data_nascimento = datDataNascimento.Value;
-            object cargo = cmbCargo.SelectedItem;
+            // Faz um casting do item selecionado para a classe de Cargo
+            Cargo cargo = (Cargo)cmbCargo.SelectedItem;
 
             // Validações
             Validacao.VerificaComprimento(txtNome, 255, "nome", false);
@@ -60,7 +61,7 @@ namespace HospitalStHelena
                 { "email", email },
                 { "data_nascimento", data_nascimento.ToString("yyyy-MM-dd") },
                 { "senha", senha },
-                { "cargo_id", cargo },
+                { "cargo_id", cargo.id },
             };
             
             // Tenta inserir no banco

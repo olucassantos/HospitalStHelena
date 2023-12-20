@@ -23,7 +23,7 @@ namespace HospitalStHelena
 
             foreach (Cargo cargo in lista)
             {
-                this.Items.Add(cargo.titulo);
+                this.Items.Add(cargo);
             }
         }
 

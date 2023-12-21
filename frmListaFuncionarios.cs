@@ -13,6 +13,9 @@ namespace HospitalStHelena
 {
     public partial class frmListaFuncionarios : Form
     {
+        private MySqlDataAdapter adaptador;
+        private DataTable dataTable;
+
         // Executa quando o formulário é instanciado
         public frmListaFuncionarios()
         {
@@ -31,23 +34,39 @@ namespace HospitalStHelena
             // Conectamos ao banco de dados
             ConexaoDB conexaoDB = new ConexaoDB();
 
-            string sql = "SELECT funcionarios.id, nome, cpf, email, titulo Cargo " +
-                "FROM funcionarios join cargos on (funcionarios.cargo_id = cargos.id)";
+            //string sql = "SELECT funcionarios.id, nome, cpf, email, titulo Cargo " +
+            //    "FROM funcionarios join cargos on (funcionarios.cargo_id = cargos.id)";
+
+            string sql = "SELECT * FROM funcionarios";
 
             // Cria um comando para o mysql
             var comando = new MySqlCommand(sql, conexaoDB.conexao);
 
             // Adapta o resultado da consulta ao banco
-            var adaptador = new MySqlDataAdapter(comando);
+            adaptador = new MySqlDataAdapter(comando);
 
             // Cria uma tabela de dados
-            DataTable dataTable = new DataTable();
+            dataTable = new DataTable();
 
             // Adiciona o resultado a tabela de dados
             adaptador.Fill(dataTable);
 
-            // Preenche o Data Source com os dados
-            dataFuncionarios.DataSource = dataTable;
+            // Cria um BindingSource para o DataGridView
+            BindingSource bindingSource = new BindingSource();
+            bindingSource.DataSource = dataTable;
+
+            // Associa o DataSource com o bindingSource
+            dataFuncionarios.DataSource = bindingSource;
+            barraNavegacao.BindingSource = bindingSource;
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            // Classe para criar comandos para o MySQL
+            MySqlCommandBuilder construtoraComandos = new MySqlCommandBuilder(adaptador);
+
+            // Executa um comando para atualizar a tabela
+            adaptador.Update(dataTable);
         }
     }
 }

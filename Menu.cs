@@ -28,8 +28,8 @@ namespace HospitalStHelena
 
         private void funcionáriosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmFuncionarios funcionarios = new frmFuncionarios();
-            funcionarios.ShowDialog();
+            frmListaFuncionarios listaFuncionarios = new frmListaFuncionarios();
+            listaFuncionarios.ShowDialog();
         }
     }
 }

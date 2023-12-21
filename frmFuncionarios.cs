@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HospitalStHelena.Modelos;
 
 namespace HospitalStHelena
 {
@@ -61,7 +62,7 @@ namespace HospitalStHelena
                 { "email", email },
                 { "data_nascimento", data_nascimento.ToString("yyyy-MM-dd") },
                 { "senha", senha },
-                { "cargo_id", cargo.id },
+                { "cargo_id", cargo.Id },
             };
             
             // Tenta inserir no banco

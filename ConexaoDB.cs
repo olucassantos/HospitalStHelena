@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HospitalStHelena.Modelos;
 
 namespace HospitalStHelena
 {
@@ -114,7 +115,7 @@ namespace HospitalStHelena
                             string titulo = leitor.GetString("titulo");
                             string descricao = leitor.GetString("descricao");
 
-                            lista.Add(new Cargo { id = id, titulo = titulo, descricao = descricao });
+                            lista.Add(new Cargo { Id = id, Titulo = titulo, Descricao = descricao });
                         }
                     }
                 }
@@ -123,11 +124,5 @@ namespace HospitalStHelena
             }
         }
 
-    }
-    class Cargo
-    {
-        public int id { get; set; }
-        public string titulo { get; set; }
-        public string descricao { get; set;}
     }
 }
